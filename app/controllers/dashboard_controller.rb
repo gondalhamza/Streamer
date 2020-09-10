@@ -7,31 +7,35 @@ class DashboardController < ApplicationController
   before_action :set_user, only: [:index, :wall]
 
 	def index
-    # REST client to make API calls for logged in user
-    twitter_rest_client = TwitterFactory.new_rest_client(@user[:token], @user[:secret])
+    begin
+      # REST client to make API calls for logged in user
+      twitter_rest_client = TwitterFactory.new_rest_client(@user[:token], @user[:secret])
 
-    @tweets = twitter_rest_client.user_timeline(tweet_params.symbolize_keys)
-    @tweets.map! { |tweet| TwitterFactory::Tweet.new(tweet) }
+      @tweets = twitter_rest_client.user_timeline(tweet_params.symbolize_keys)
+      @tweets.map! { |tweet| TwitterFactory::Tweet.new(tweet) }
 
-    set_page
-    respond_to do |format|
-      format.html
-      format.json { render json: @tweets }
+      set_page
+    rescue
+      # Exception handling
+      @error = "Unable to Fetch Timeline Tweets, Try again later"
     end
+    respond_to(:html)
 	end
 
 	def wall
-		# REST client to make API calls for logged in user
-    twitter_rest_client = TwitterFactory.new_rest_client(@user[:token], @user[:secret])
+    begin
+      # REST client to make API calls for logged in user
+      twitter_rest_client = TwitterFactory.new_rest_client(@user[:token], @user[:secret])
 
-    @tweets = twitter_rest_client.home_timeline(tweet_params.symbolize_keys)
-    @tweets.map! { |tweet| TwitterFactory::Tweet.new(tweet) }
+      @tweets = twitter_rest_client.home_timeline(tweet_params.symbolize_keys)
+      @tweets.map! { |tweet| TwitterFactory::Tweet.new(tweet) }
 
-    set_page
-    respond_to do |format|
-      format.html
-      format.json { render json: @tweets }
+      set_page
+    rescue
+      # Exception handling
+      @error = "Unable to Fetch Wall Tweets, Try again later"
     end
+    respond_to(:html)
 	end
 
   private
@@ -44,7 +48,7 @@ class DashboardController < ApplicationController
 
   def set_page
     # Page number for pagination
-    @page_number = params[:page].nil? ? 1 : params[:page] .to_i
+    @page_number = params[:page].nil? ? 1 : params[:page].to_i
   end
 
   def default_params

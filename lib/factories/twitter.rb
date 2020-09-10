@@ -23,7 +23,7 @@ module TwitterFactory
         user_nickname: object.user.screen_name
       })
     end
-
+    #Viewmodel Tweet object
     def tweet_object(tweet)
       tweet.each do |name, value|
         send("#{name}=", value)
@@ -42,5 +42,4 @@ module TwitterFactory
     }
     Twitter::REST::Client.new(config)
   end
-
 end
