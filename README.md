@@ -93,8 +93,15 @@ Full Name
 TODO:
 - Unit Tests and Integration Tests
 
----
+During the last week I got sick, had to take rest from all my duties. In that time Test casses were part of Initial Plan.
 
+---
+## Timeline
+> In the start I planned to complete this work in 4 weeks along with my other commitments. 
+> Getting the twitter developer approved took almost 2 weeks.
+> After that I did my initial commit.
+
+---
 ## License
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
