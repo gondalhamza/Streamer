@@ -62,6 +62,13 @@ $ rails s
 
 ---
 
+---
+
+## Deployment
+- This application is deployed to Heroku at `https://twitter-stream.herokuapp.com/` [Here](https://twitter-stream.herokuapp.com/)
+
+---
+
 
 ## Usage
 - On homepage click on Login button
