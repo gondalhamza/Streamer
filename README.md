@@ -95,16 +95,23 @@ Full Name
 ---
 
 ## Tests 
-TODO:
 - Unit Tests and Integration Tests
 
-During the last week I got sick, had to take rest from all my duties. In that time Test casses were part of Initial Plan.
+> Setup test database
+
+```shell
+$ rails db:migrate RAILS_ENV=test
+```
+
+> Run the tests
+
+```shell
+$ bundle exec rspec
+```
 
 ---
 ## Timeline
 > In the start I planned to complete this work in 4 weeks along with my other commitments. 
-> Getting the twitter developer approved took almost 2 weeks.
-> After that I did my initial commit.
 
 ---
 ## License
