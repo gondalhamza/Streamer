@@ -14,15 +14,16 @@ module TwitterFactory
 
     def initialize(object)
       tweet_object({
-        text: object.text,
-        user_tw_id: object.user.id.to_s,
-        screen_name: object.user.name,
-        user_image: object.user.profile_image_url.to_s,
-        created_at: object.created_at.to_s,
-        retweet_count: object.retweet_count,
-        user_nickname: object.user.screen_name
-      })
+                       text: object.text,
+                       user_tw_id: object.user.id.to_s,
+                       screen_name: object.user.name,
+                       user_image: object.user.profile_image_url.to_s,
+                       created_at: object.created_at.to_s,
+                       retweet_count: object.retweet_count,
+                       user_nickname: object.user.screen_name
+                   })
     end
+
     #Viewmodel Tweet object
     def tweet_object(tweet)
       tweet.each do |name, value|
@@ -35,10 +36,10 @@ module TwitterFactory
   #  Twitter api REST cleint for making calls
   def self.new_rest_client(token = '', secret = '')
     config = {
-      consumer_key: @config[:consumer_key],
-      consumer_secret: @config[:consumer_secret],
-      access_token: token,
-      access_token_secret: secret
+        consumer_key: @config[:consumer_key],
+        consumer_secret: @config[:consumer_secret],
+        access_token: token,
+        access_token_secret: secret
     }
     Twitter::REST::Client.new(config)
   end

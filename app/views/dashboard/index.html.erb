@@ -1,5 +1,5 @@
 <div class="container-fluid tweet-container">
-	<h1>Timeline</h1>
+  <h1>Timeline</h1>
 
   <% unless @error %>
     <ul id="tweet-list" class="tweet-list">
@@ -12,19 +12,19 @@
       <ul class="pagination justify-content-center">
         <% if @page_number > 1 %>
           <li class="page-item">
-            <%= link_to timeline_path(page: @page_number-1), class: "page-link" do %>
+            <%= link_to timeline_path(page: @page_number - 1), class: "page-link" do %>
               previous
             <% end %>
           </li>
         <% end %>
         <li class="page-item active">
           <%= link_to timeline_path(page: @page_number), class: "page-link" do %>
-            <%=@page_number%>
+            <%= @page_number %>
           <% end %>
         </li>
         <% if @page_number < 4 %>
           <li class="page-item">
-            <%= link_to timeline_path(page: @page_number+1), class: "page-link" do %>
+            <%= link_to timeline_path(page: @page_number + 1), class: "page-link" do %>
               next
             <% end %>
           </li>
@@ -33,6 +33,6 @@
     </nav>
   <% else %>
     <H3>Failed:</H3>
-    <P><%=@error%></P>
+    <P><%= @error %></P>
   <% end %>
 </div>

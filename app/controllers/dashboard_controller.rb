@@ -1,12 +1,12 @@
 require 'factories/twitter'
 
 class DashboardController < ApplicationController
-	include TwitterFactory
+  include TwitterFactory
 
-	before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_user, only: [:index, :wall]
 
-	def index
+  def index
     begin
       # REST client to make API calls for logged in user
       twitter_rest_client = TwitterFactory.new_rest_client(@user[:token], @user[:secret])
@@ -20,9 +20,9 @@ class DashboardController < ApplicationController
       @error = "Unable to Fetch Timeline Tweets, Try again later"
     end
     respond_to(:html)
-	end
+  end
 
-	def wall
+  def wall
     begin
       # REST client to make API calls for logged in user
       twitter_rest_client = TwitterFactory.new_rest_client(@user[:token], @user[:secret])
@@ -36,7 +36,7 @@ class DashboardController < ApplicationController
       @error = "Unable to Fetch Wall Tweets, Try again later"
     end
     respond_to(:html)
-	end
+  end
 
   private
 

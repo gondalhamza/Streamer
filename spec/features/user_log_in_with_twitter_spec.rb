@@ -28,26 +28,26 @@ def stub_omniauth
   # then, provide a set of fake oauth data that
   # omniauth will use when a user tries to authenticate:
   OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new(
-  {
-    provider: "twitter",
-    uid: "12345678910",
-    info: {
-      email: "alexa@example.com",
-      nick_name: "alexa",
-    },
-    extra: {
-      raw_info: {
-        screen_name: 'mock_screen_name',
-        followers_count: 'mock_followers_count',
-        friends_count: 'mock_friends_count',
-        statuses_count: 'mock_statuses_count',
-      }
-    },
-    credentials: {
-      token: "abcdefg12345",
-      refresh_token: "12345abcdefg",
-    }
-})
+      {
+          provider: "twitter",
+          uid: "12345678910",
+          info: {
+              email: "alexa@example.com",
+              nick_name: "alexa",
+          },
+          extra: {
+              raw_info: {
+                  screen_name: 'mock_screen_name',
+                  followers_count: 'mock_followers_count',
+                  friends_count: 'mock_friends_count',
+                  statuses_count: 'mock_statuses_count',
+              }
+          },
+          credentials: {
+              token: "abcdefg12345",
+              refresh_token: "12345abcdefg",
+          }
+      })
 end
 
 def stub_omniauth_invalid_credentials
